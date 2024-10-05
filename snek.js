@@ -58,9 +58,14 @@ function draw() {
 
 function endGame() {
     clearInterval(game);
-    alert("Game Over! Your score: " + score);
-    initializeGame();  // Reset game state
-    game = setInterval(draw, 100);  // Restart the game loop
+    const playAgain = confirm("Game Over! Your score: " + score + ". Do you want to play again?");
+    
+    if (playAgain) {
+        initializeGame();  // Reset game state
+        game = setInterval(draw, 100);  // Restart the game loop
+    } else {
+        alert("Thanks for playing!");
+    }
 }
 
 function changeDirection(event) {
