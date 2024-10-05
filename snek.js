@@ -12,15 +12,14 @@ function getRandomCoordinate() {
 }
 
 function draw() {
-    // Clear canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
     // Draw food (pink letter "E")
     ctx.fillStyle = "pink";
     ctx.font = "20px Arial";
-    ctx.fillText("E", food.x, food.y + gridSize - 2);  // Adjust position to fit grid
+    ctx.fillText("E", food.x, food.y + gridSize - 2);
 
-    // Draw snake (green squares)
+    // Draw snake
     ctx.fillStyle = "lime";
     snake.forEach(segment => ctx.fillRect(segment.x, segment.y, gridSize, gridSize));
     
@@ -33,7 +32,7 @@ function draw() {
         score++;
         food = {x: getRandomCoordinate(), y: getRandomCoordinate()};
     } else {
-        snake.pop(); // Keep snake the same length unless it eats food
+        snake.pop();
     }
     
     // Check collisions with walls
@@ -56,21 +55,18 @@ function endGame() {
 
 function changeDirection(event) {
     const keyPressed = event.keyCode;
-    if (keyPressed === 37 && direction.x === 0) { // Left arrow
+    if (keyPressed === 37 && direction.x === 0) {
         direction = {x: -gridSize, y: 0};
-    } else if (keyPressed === 38 && direction.y === 0) { // Up arrow
+    } else if (keyPressed === 38 && direction.y === 0) {
         direction = {x: 0, y: -gridSize};
-    } else if (keyPressed === 39 && direction.x === 0) { // Right arrow
+    } else if (keyPressed === 39 && direction.x === 0) {
         direction = {x: gridSize, y: 0};
-    } else if (keyPressed === 40 && direction.y === 0) { // Down arrow
+    } else if (keyPressed === 40 && direction.y === 0) {
         direction = {x: 0, y: gridSize};
     }
 }
 
-// Listen for keyboard input
 window.addEventListener("keydown", changeDirection);
-
-// Run the game loop every 100 milliseconds
 const game = setInterval(draw, 100);
-console.log("Snake game loaded!");
+
 
