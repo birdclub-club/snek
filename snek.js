@@ -9,8 +9,8 @@ let score;
 let game;
 
 function initializeGame() {
-    snake = [{x: 160, y: 160}];
-    direction = {x: gridSize, y: 0};
+    snake = [{x: 160, y: 160}];  // Start the snake in the middle of the canvas
+    direction = {x: gridSize, y: 0};  // Set the initial direction to the right
     food = {x: getRandomCoordinate(), y: getRandomCoordinate()};
     score = 0;
 }
