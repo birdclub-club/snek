@@ -1,0 +1,28 @@
+/* Basic styles for Snake Game */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #333;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+}
+
+canvas {
+    background-color: black;
+    border: 5px solid lime;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#score {
+    font-size: 1.5em;
+    margin-top: 20px;
+}
