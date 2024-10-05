@@ -20,15 +20,25 @@ function getRandomCoordinate() {
 }
 
 function draw() {
+    // Clear canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Set the background color of the play area to white
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Draw the pink border
+    ctx.strokeStyle = "pink";
+    ctx.lineWidth = 4;
+    ctx.strokeRect(0, 0, canvas.width, canvas.height);
 
     // Draw food (pink letter "E")
     ctx.fillStyle = "pink";
     ctx.font = "20px Arial";
     ctx.fillText("E", food.x, food.y + gridSize - 2);
 
-    // Draw snake
-    ctx.fillStyle = "lime";
+    // Draw snake (pink squares)
+    ctx.fillStyle = "pink";
     snake.forEach(segment => ctx.fillRect(segment.x, segment.y, gridSize, gridSize));
 
     // Move snake
