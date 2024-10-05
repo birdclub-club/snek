@@ -72,3 +72,5 @@ window.addEventListener("keydown", changeDirection);
 
 // Run the game loop every 100 milliseconds
 const game = setInterval(draw, 100);
+console.log("Snake game loaded!");
+
